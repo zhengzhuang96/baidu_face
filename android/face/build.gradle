@@ -1,0 +1,4 @@
+package android.face
+
+configurations.maybeCreate("default")
+artifacts.add("default", file('faceplatform-release.aar'))
