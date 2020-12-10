@@ -112,6 +112,7 @@ public class BaiduFacePlugin implements FlutterPlugin, MethodCallHandler, Activi
         livenessResult = result;
         Intent faceLivenessIntent = new Intent(activity, OfflineFaceLivenessActivity.class);
         activity.startActivityForResult(faceLivenessIntent, LIVENESS_REQ_CODE);
+
         break;
       default:
         result.notImplemented();
@@ -141,6 +142,7 @@ public class BaiduFacePlugin implements FlutterPlugin, MethodCallHandler, Activi
               livenessResult.error("识别失败", "识别失败", "识别失败");
             }
             livenessResult = null;
+
           }
         }
         return false;

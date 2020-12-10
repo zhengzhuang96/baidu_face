@@ -75,8 +75,6 @@
         [lvc livenesswithList:_livenessTypeList
                         order:!_livenessRandom
              numberOfLiveness:1];
-        lvc.userName = userName;
-        lvc.cardNum = cardNum;
         lvc.completion = ^(NSDictionary* images, UIImage* originImage){
             NSArray *imageArr = images[@"image"];
             FaceCropImageInfo * bestImage = imageArr[0];

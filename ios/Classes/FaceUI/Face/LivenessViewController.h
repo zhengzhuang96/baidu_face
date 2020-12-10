@@ -9,8 +9,6 @@
 #import "FaceBaseViewController.h"
 
 @interface LivenessViewController : FaceBaseViewController
-@property(nonatomic,strong)NSString *userName;
-@property(nonatomic,strong)NSString *cardNum;
 - (void)livenesswithList:(NSArray *)livenessArray order:(BOOL)order numberOfLiveness:(NSInteger)numberOfLiveness;
 
 @end

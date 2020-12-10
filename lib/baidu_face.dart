@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-04 09:05:04
- * @LastEditTime: 2020-12-07 10:40:18
+ * @LastEditTime: 2020-12-08 10:05:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /baidu_face/lib/baidu_face.dart
@@ -11,6 +11,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:baidu_face/config.dart';
+
 class BaiduFace {
   static BaiduFace instance = BaiduFace._();
 
@@ -50,8 +51,11 @@ class BaiduFace {
   /// 以base64字符串形式返回人脸数据
   Future<String> liveDetect() async {
     final String base64Image = await _channel.invokeMethod('liveDetect');
-    print('11111111111---$base64Image');
     return base64Image.replaceAll(new RegExp('\\s*|\t|\r|\n'), "").trim();
   }
 
+  /// 结束活体检测
+  void uninitCollect() {
+    _channel.invokeMethod('uninit');
+  }
 }

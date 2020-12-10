@@ -490,6 +490,7 @@ public class FaceLivenessActivity extends Activity implements
         if (status == FaceStatusNewEnum.OK) {
             mIsCompletion = true;
             saveImage(base64ImageCropMap, base64ImageSrcMap);
+
             // saveAllImage(base64ImageCropMap, base64ImageSrcMap);
         }
     }
@@ -615,6 +616,7 @@ public class FaceLivenessActivity extends Activity implements
                     return Float.valueOf(score2).compareTo(Float.valueOf(score1));
                 }
             });
+
 
             // TODO:发送加密的base64字符串
 //            int secType = mFaceConfig.getSecType();

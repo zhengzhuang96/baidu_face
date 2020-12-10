@@ -7,7 +7,8 @@
     <uses-permission android:name="android.hardware.camera.autofocus" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-    <application>
+    <application
+android:usesCleartextTraffic="true">
         <activity android:name=".OfflineFaceLivenessActivity"
             android:theme="@style/TranslucentStatus" />
     </application>

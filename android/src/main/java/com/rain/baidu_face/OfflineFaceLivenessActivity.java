@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.baidu.idl.face.platform.FaceSDKManager;
 import com.baidu.idl.face.platform.FaceStatusNewEnum;
 import com.baidu.idl.face.platform.model.ImageInfo;
 import com.rain.baidu_face.platform.ui.FaceLivenessActivity;
@@ -25,8 +26,7 @@ public class OfflineFaceLivenessActivity extends FaceLivenessActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 添加至销毁列表
-//        ExampleApplication.addDestroyActivity(FaceLivenessExpActivity.this,
+        // 添加至销毁列�?//        ExampleApplication.addDestroyActivity(FaceLivenessExpActivity.this,
 //                "FaceLivenessExpActivity");
     }
 
@@ -40,14 +40,14 @@ public class OfflineFaceLivenessActivity extends FaceLivenessActivity implements
             final Intent resultIntent = new Intent();
             resultIntent.putExtra("bestImage", mBmpStr);
             setResult(RESULT_OK, resultIntent);
-//            finish();
+            finish();
 //            new SecRequest().
  //           SecRequest.sendMessage(getBaseContext(), mBmpStr, 0);
 //            final Intent resultIntent = new Intent();
 //            resultIntent.putExtra("bestImage", mBmpStr);
 //            setResult(RESULT_OK, resultIntent);
 
-            //   showMessageDialog("活体检测", "检测成功");
+            //   showMessageDialog("活体检�?, "检测成�?);
 //            IntentUtils.getInstance().setBitmap(mBmpStr);
 //            Intent intent = new Intent(FaceLivenessExpActivity.this,
 //                    CollectionSuccessExpActivity.class);
@@ -111,4 +111,11 @@ public class OfflineFaceLivenessActivity extends FaceLivenessActivity implements
 //            finish();
 //        }
 //    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        FaceSDKManager.release();
+    }
 }

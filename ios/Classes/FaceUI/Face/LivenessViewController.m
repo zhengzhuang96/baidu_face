@@ -72,16 +72,8 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     NSMutableDictionary * dictionary =  [[NSMutableDictionary alloc] init];
     dictionary[@"risk_identify"] = @(false);
-    
-    if (self.cardNum == NULL|| self.cardNum.length == 0||self.userName == NULL|| self.userName.length == 0) {
-        NSLog(@"用户名或身份证号码为空");
-        return;
-    }
-    
     dictionary[@"image_type"] = @"BASE64";
     dictionary[@"image"] = imageStr;
-    dictionary[@"id_card_number"] = self.cardNum;
-    dictionary[@"name"] = [self.userName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     dictionary[@"quality_control"] = @"NONE";
     dictionary[@"liveness_control"] = @"NONE";
     dictionary[@"risk_identify"] = @YES;
