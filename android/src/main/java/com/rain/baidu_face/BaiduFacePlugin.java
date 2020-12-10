@@ -114,6 +114,9 @@ public class BaiduFacePlugin implements FlutterPlugin, MethodCallHandler, Activi
         activity.startActivityForResult(faceLivenessIntent, LIVENESS_REQ_CODE);
 
         break;
+      case "uninit":
+        FaceSDKManager.release();
+        break;
       default:
         result.notImplemented();
         break;
