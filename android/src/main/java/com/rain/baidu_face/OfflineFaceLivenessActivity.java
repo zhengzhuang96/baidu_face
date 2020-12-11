@@ -12,7 +12,6 @@ import com.baidu.idl.face.platform.FaceSDKManager;
 import com.baidu.idl.face.platform.FaceStatusNewEnum;
 import com.baidu.idl.face.platform.model.ImageInfo;
 import com.rain.baidu_face.platform.ui.FaceLivenessActivity;
-import com.rain.baidu_face.platform.ui.utils.IntentUtils;
 import com.rain.baidu_face.platform.ui.utils.TimeoutDialog;
 
 
@@ -26,7 +25,7 @@ public class OfflineFaceLivenessActivity extends FaceLivenessActivity implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 添加至销毁列�?//        ExampleApplication.addDestroyActivity(FaceLivenessExpActivity.this,
+        //       ExampleApplication.addDestroyActivity(FaceLivenessExpActivity.this,
 //                "FaceLivenessExpActivity");
     }
 
@@ -47,17 +46,18 @@ public class OfflineFaceLivenessActivity extends FaceLivenessActivity implements
 //            resultIntent.putExtra("bestImage", mBmpStr);
 //            setResult(RESULT_OK, resultIntent);
 
-            //   showMessageDialog("活体检�?, "检测成�?);
+
 //            IntentUtils.getInstance().setBitmap(mBmpStr);
 //            Intent intent = new Intent(FaceLivenessExpActivity.this,
 //                    CollectionSuccessExpActivity.class);
 //            intent.putExtra("destroyType", "FaceLivenessExpActivity");
 //            startActivity(intent);
         } else if (status == FaceStatusNewEnum.DetectRemindCodeTimeout) {
-            if (mViewBg != null) {
-                mViewBg.setVisibility(View.VISIBLE);
-            }
-            showMessageDialog();
+            finish();
+//            if (mViewBg != null) {
+//                mViewBg.setVisibility(View.VISIBLE);
+//            }
+//            showMessageDialog();
         }
     }
 
@@ -111,11 +111,4 @@ public class OfflineFaceLivenessActivity extends FaceLivenessActivity implements
 //            finish();
 //        }
 //    }
-
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        FaceSDKManager.release();
-    }
 }
